@@ -1,5 +1,5 @@
 // Import Mapbox as an ESM module
-import mapboxgl from 'https://cdn.jsdelivr.net/npm/mapbox-gl@2.15.0/+esm';
+import mapboxgl from 'https://cdn.jsdelivr.net/npm/mapbox-gl@3.34.2/+esm';
 
 // Check that Mapbox GL JS is loaded
 console.log('Mapbox GL JS Loaded:', mapboxgl);
@@ -10,9 +10,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZHZ2dW9uZyIsImEiOiJjbXdhY3BlZ3owY3F5MnpvbnM4a
 // Initialize the map
 const map = new mapboxgl.Map({
     container: 'map', // ID of the div where the map will render
-    style: 'mapbox://styles/dvvuong/cmwaddjhi002c01sqbqgebgye', // Map style
+    style: 'mapbox://styles/dvvuong/cmwae32lh002a01st15hmgx3h', // Map style
     center: [-71.09415, 42.36027], // [longitude, latitude]
     zoom: 12, // Initial zoom level
     minZoom: 5, // Minimum allowed zoom
     maxZoom: 18, // Maximum allowed zoom
 });
+
+map.on('load', () => {console.log('Mapbox map initialized successfully!');});
