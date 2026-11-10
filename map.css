@@ -1,23 +1,76 @@
-html,
-body {
-    margin: 0;
-    padding: 5;
-    height: 100%;
+/* Map container */
+#map {
+    position: relative;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    /* Center horizontally */
-    align-items: center;
-    /* Center vertically */
+    height: 70vh;
+    min-height: 400px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-#map {
+/* SVG overlay */
+#map svg {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
     width: 100%;
-    /* Adjust width to your desired size */
     height: 100%;
-    /* Adjust height to your desired size */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Optional: subtle shadow for effect */
-    border-radius: 8px;
-    /* Optional: rounded corners */
+    pointer-events: none;
+}
+
+/* Station circles */
+#map circle {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Keep slider and time labels stable */
+#selected-time,
+#any-time {
+    min-height: 1.5em;
+}
+
+#map circle,
+.legend>div {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+
+    --color: color-mix(in oklch,
+            var(--color-departures) calc(100% * var(--departure-ratio)),
+            var(--color-arrivals));
+}
+
+#map circle {
+    fill: var(--color);
+}
+
+.legend {
+    display: flex;
+    width: 100%;
+    gap: 1px;
+    margin-block: 1em;
+    overflow: hidden;
+}
+
+.legend>div {
+    flex: 1;
+    padding: 0.3em 0.5em;
+    background: var(--color);
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.legend>div:nth-child(1) {
+    text-align: left;
+}
+
+.legend>div:nth-child(2) {
+    text-align: center;
+}
+
+.legend>div:nth-child(3) {
+    text-align: right;
 }
