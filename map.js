@@ -35,7 +35,7 @@ map.on('load', async () => {
         paint: {
             'line-color': 'green',
             'line-width': 3,          // Thicker lines
-            'line-opacity': 0.6       // Slightly less transparent
+            'line-opacity': 0.75       // Slightly less transparent
         }
     });
 
@@ -51,7 +51,7 @@ map.on('load', async () => {
         paint: {
             'line-color': 'green',
             'line-width': 3,          // Thicker lines
-            'line-opacity': 0.6       // Slightly less transparent
+            'line-opacity': 0.75       // Slightly less transparent
         }
     });
 
